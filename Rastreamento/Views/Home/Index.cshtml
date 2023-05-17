@@ -1,0 +1,51 @@
+﻿@{
+    ViewData["Title"] = "Página Inicial";
+}
+
+<h2 class="text-center mb-4">Seja bem-vindo(a) Usuário</h2>
+
+<div id="map" style="height: 400px;"></div>
+
+@section Scripts {
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC5sPJLobyc_J6fQTX3uzht4tNNsGub-xo"></script>
+    <script>function initMap() {
+            var map = new google.maps.Map(document.getElementById('map'), {
+                center: { lat: -29.1694, lng: -51.1795 },
+                zoom: 13
+            });
+
+            var coordinates = [
+                { lat: -29.1675, lng: -51.1835 },
+                { lat: -29.1685, lng: -51.1815 },
+                { lat: -29.1695, lng: -51.1795 },
+                { lat: -29.1705, lng: -51.1775 },
+                { lat: -29.1715, lng: -51.1755 }
+            ];
+
+            var path = new google.maps.Polyline({
+                path: coordinates,
+                geodesic: true,
+                strokeColor: '#FF0000',
+                strokeOpacity: 1.0,
+                strokeWeight: 2
+            });
+
+            path.setMap(map);
+
+            map.setCenter(coordinates[0]);
+
+            var startPoint = new google.maps.Marker({
+                position: { lat: -29.1675, lng: -51.1835 },
+                map: map,
+                title: 'Início'
+            });
+
+            var endPoint = new google.maps.Marker({
+                position: { lat: -29.1715, lng: -51.1755 },
+                map: map,
+                title: 'Fim'
+                
+            });
+        }</script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC5sPJLobyc_J6fQTX3uzht4tNNsGub-xo&callback=initMap"></script>
+}

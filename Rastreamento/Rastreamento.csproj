@@ -1,0 +1,28 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <PropertyGroup Condition=" '$(RunConfiguration)' == 'https' " />
+  <PropertyGroup Condition=" '$(RunConfiguration)' == 'http' " />
+  <ItemGroup>
+    <None Remove="Views\Login\" />
+    <None Remove="Views\Cadastro\" />
+    <None Remove="outros\" />
+    <None Remove="Views\Listar\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Views\Login\" />
+    <Folder Include="Views\Cadastro\" />
+    <Folder Include="outros\" />
+    <Folder Include="Views\Listar\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Remove="Views\Listar\ListarFuncionario.cshtml" />
+    <Content Remove="Views\Listar\ListarVeiculo.cshtml" />
+    <Content Remove="Views\Listar\ListarFuncionario.cs" />
+  </ItemGroup>
+</Project>
